@@ -1,0 +1,21 @@
+import {
+  Meta,
+  Story,
+  Preview,
+  Props,
+} from '@storybook/addon-docs/blocks';
+import Title from './Title';
+
+<Meta title="examples/Title" component={Title} />
+
+# TypeScript Storybook MDX Example
+
+Example of Title Component
+
+<Props of={Title} />
+
+<Preview>
+  <Story name="title">
+    <Title>Hello World</Title>
+  </Story>
+</Preview>
