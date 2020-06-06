@@ -9,23 +9,14 @@
 const path = require('path');
 
 const WATCH = process.env.WATCH === 'true' ? true : false;
-const pkg = require(path.join(
-  __dirname,
-  '../package.json',
-));
-const STATIC_INPUT = path.join(__dirname, '../static');
-const STATIC_OUTPUT = path.join(
-  __dirname,
-  '../dist/static',
-);
+const pkg = require(path.join(__dirname, './package.json'));
+const STATIC_INPUT = path.join(__dirname, './static');
+const STATIC_OUTPUT = path.join(__dirname, './dist/static');
 const CSS_INPUT = path.join(
   __dirname,
-  '../src/component-library/global.css',
+  './src/component-library/global.css',
 );
-const CSS_OUTPUT = path.join(
-  __dirname,
-  '../dist/index.css',
-);
+const CSS_OUTPUT = path.join(__dirname, './dist/index.css');
 const chalk = require('chalk');
 const execa = require('execa');
 const fs = require('fs-extra');

@@ -7,10 +7,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/jlarmstrongiv/gatsby-test-template-v2"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/jlarmstrongiv/gatsby-test-template-v2/issues"
   },
   "main": "dist/index.js",
   "version": "0.1.0",
@@ -160,9 +160,9 @@
     "develop:test": "jest --watch",
     "build:test": "jest --coverage",
     "debug:test": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
-    "start:cypress": "npm run develop:cypress",
-    "develop:cypress": "start-server-and-test start:gatsby http://localhost:8000 'cypress open --config baseUrl=http://localhost:8000'",
-    "build:cypress": "start-server-and-test 'npm-run-all build:gatsby serve:gatsby' http://localhost:9000 'cypress run --config baseUrl=http://localhost:9000'",
+    "start-cypress": "npm run develop:cypress",
+    "develop-cypress": "start-server-and-test start:gatsby http://localhost:8000 'cypress open --config baseUrl=http://localhost:8000'",
+    "build-cypress": "start-server-and-test 'npm-run-all build:gatsby serve:gatsby' http://localhost:9000 'cypress run --config baseUrl=http://localhost:9000'",
     "MAINTENANCE": "",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,mdx}\"",
     "test:gatsby": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
