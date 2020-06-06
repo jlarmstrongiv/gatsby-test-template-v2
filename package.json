@@ -16,7 +16,7 @@
   "version": "0.1.0",
   "author": "John L. Armstrong IV",
   "description": "A simple starter to get up and developing quickly with Gatsby",
-  "private": true,
+  "private": false,
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.10.2",
