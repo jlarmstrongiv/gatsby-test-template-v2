@@ -19,21 +19,10 @@ const CSS_INPUT = path.join(
 const CSS_OUTPUT = path.join(__dirname, './dist/index.css');
 const chalk = require('chalk');
 const execa = require('execa');
+// execa colors https://github.com/sindresorhus/execa/issues/69
 const fs = require('fs-extra');
 const chokidar = require('chokidar');
 const debounce = require('lodash.debounce');
-const through2Map = require('through2-map');
-const colorize = through2Map((chunk) => {
-  if (
-    chunk.includes('Processing') ||
-    chunk.includes('Finished') ||
-    chunk.includes('Waiting')
-  )
-    return chalk.cyan(chunk);
-
-  // return errors in red
-  return chalk.red(chunk);
-});
 
 let subprocess;
 if (!WATCH) {
@@ -50,17 +39,22 @@ if (!WATCH) {
   subprocess = execa
     .command(
       `postcss ${CSS_INPUT} -o ${CSS_OUTPUT} --env ${process.env.NODE_ENV} --verbose`,
+      {
+        env: { FORCE_COLOR: true },
+      },
     )
-    .stdout.pipe(colorize)
-    .pipe(process.stdout);
+    .stdout.pipe(process.stdout);
 } else {
   // css
   subprocess = execa.command(
     `postcss ${CSS_INPUT} -o ${CSS_OUTPUT} --env ${process.env.NODE_ENV} -w --verbose`,
+    {
+      env: { FORCE_COLOR: true },
+    },
   );
   // duplicate output
   // subprocess.stdout.pipe(cyan).pipe(process.stdout);
-  subprocess.stderr.pipe(colorize).pipe(process.stderr);
+  subprocess.stderr.pipe(process.stderr);
 
   // watcher
   const watcher = chokidar.watch(STATIC_INPUT, {
